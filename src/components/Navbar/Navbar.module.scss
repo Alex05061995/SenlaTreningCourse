@@ -1,0 +1,14 @@
+.navbar {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    background: green;
+
+    .maintitle {
+        font-size: 30px;
+        color: white;
+    }
+}
+
