@@ -1,0 +1,24 @@
+.linkWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  font-size: 30px;
+}
+
+.link:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.link:active {
+  color: #b8aeae
+}
+
+.link:hover {
+  color: #d1aaaa
+}
+
+.link:focus {
+  color: #ddd0d0
+}

@@ -1,19 +1,18 @@
-import { UserType } from "../../types/user"
+import { User } from "../../types/userTypes"
 
-interface UserProps {
-    user: UserType
+interface UserDetailProps {
+  user: User;
 }
 
-const UserDetail:React.FC<UserProps> = ({ user }) => {
+const UserDetail: React.FC<UserDetailProps> = ({ user }) => {
   return (
-    <div>
-        <h1>{user.name}</h1>
-        <div>
-            {user.id}
-            {user.email}
-            {user.phone}
-            {user.username}
-        </div>
+    <div style={{display: "flex", flexDirection: 'column'}}>
+      <h2>{user.username}</h2>
+      <span>{user.id}</span>
+      <span>{user.email}</span>
+      <span>{user.phone}</span>
+      <span>{user.website}</span>
+      <span>{user.company?.name} / {user.company?.catchPhrase}</span>
     </div>
   )
 }

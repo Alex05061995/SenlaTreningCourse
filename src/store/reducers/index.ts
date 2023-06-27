@@ -1,6 +1,6 @@
-import { combineReducers } from "redux"
-import sliceUsers from './userReducer'
+import { combineReducers } from '@reduxjs/toolkit'
+import { usersSlice } from './userReducer'
 
-export const rootReducer = combineReducers({
-    sliceUsers
+export const rootReducers = combineReducers({
+  users: usersSlice.reducer
 })

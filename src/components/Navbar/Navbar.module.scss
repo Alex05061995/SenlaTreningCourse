@@ -1,14 +1,18 @@
-.navbar {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100px;
-    background: green;
+.nav {
+  padding: 20px;
+  height: var(--HeightHeader);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
 
-    .maintitle {
-        font-size: 30px;
-        color: white;
-    }
+  .linkWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+  .link {
+    padding: 0 10px;
+  }
 }
 
