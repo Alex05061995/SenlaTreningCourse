@@ -1,8 +1,15 @@
-import cls from './Footer.module.scss'
+import { styled } from 'styled-components';
 
+const FooterComponent = styled.div`
+    height: ${(props) => props.theme.heights.footerHeight};
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 30px;
+    text-align: center;
+  
+`
 const Footer = () => {
   return (
-    <div className={cls.footer}>Footer</div>
+    <FooterComponent>Footer</FooterComponent>
   )
 }
 
