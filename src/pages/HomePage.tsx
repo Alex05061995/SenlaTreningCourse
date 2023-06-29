@@ -1,12 +1,20 @@
-import UsersList from "../components/UserList/UsersList"
+import UsersList from "../components/UserList/UsersList";
 import { useAppDispatch, useAppSelector } from "../hooks/useRedux";
-import { useEffect } from 'react'
+import { useContext, useEffect } from "react";
 import allActions from "../store/actions";
+import { ModalContext } from "../components/Modal/context/ModalContext";
+import UserConfirmModal from "../Modals/UserConfirmModal.stx";
 
 const HomePage = () => {
-
   const dispatch = useAppDispatch();
   const { users, isLoading, error } = useAppSelector((state) => state.users);
+  const { open, toggleState } = useContext(ModalContext);
+
+  const handleOpen = () => {
+    if (toggleState) {
+      toggleState(!open);
+    }
+  };
 
   useEffect(() => {
     dispatch(allActions.allUsers());
@@ -18,8 +26,12 @@ const HomePage = () => {
     return <div>Ошибка загрузки</div>;
   }
   return (
-    <UsersList users={users} />
-  )
-}
+    <>
+      <UsersList users={users} />
+      <button onClick={handleOpen}>Открыть модальное окно</button>
+      {open && <UserConfirmModal />}
+    </>
+  );
+};
 
-export default HomePage
+export default HomePage;
