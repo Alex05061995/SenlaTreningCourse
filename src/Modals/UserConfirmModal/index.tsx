@@ -6,6 +6,7 @@ import AgreementModal from "./AgreementModal";
 import ConfirmModal from "./ConfirmModal";
 import { ConfirmModalContext } from "./ConfirmModal/context/ConfirmModalContext";
 import { DetailContextModal, DetailValue } from "./DetailModal/context/DetailModalContext";
+import { LocalContextProvider } from "./context";
 
 const UserConfirmModal = () => {
   const { toggleState } = useContext(ModalContext);
@@ -56,7 +57,8 @@ const UserConfirmModal = () => {
   };
 
   return (
-    <Modal>
+    <LocalContextProvider>
+      <Modal>
       <ConfirmModalContext.Provider
         value={{ value: isChecked, setValue: setIsChecked }}
       >
@@ -83,6 +85,7 @@ const UserConfirmModal = () => {
         </DetailContextModal.Provider>
       </ConfirmModalContext.Provider>
     </Modal>
+    </LocalContextProvider>
   );
 };
 

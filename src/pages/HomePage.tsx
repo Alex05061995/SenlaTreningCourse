@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../hooks/useRedux";
 import { useContext, useEffect } from "react";
 import allActions from "../store/actions";
 import { ModalContext } from "../components/Modal/context/ModalContext";
-import UserConfirmModal from "../Modals/UserConfirmModal.stx";
+import UserConfirmModal from "../Modals/UserConfirmModal";
 
 const HomePage = () => {
   const dispatch = useAppDispatch();

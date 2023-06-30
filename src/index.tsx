@@ -16,9 +16,9 @@ root.render(
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <ModalProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
         </ModalProvider>
       </ThemeProvider>
     </Provider>

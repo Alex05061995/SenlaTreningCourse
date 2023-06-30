@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { styled } from "styled-components";
 import { ConfirmModalContext } from "./context/ConfirmModalContext";
+import { useActionsCofirModale, useConfirmModalContext } from "../context";
 
 const ConfirmModalWrapper = styled.div`
   padding: 10px;
@@ -26,17 +27,35 @@ export const ConfirmModal: React.FC<IConfirmModal> = ({
   openWindowDetail,
   saveDetailModal,
 }) => {
-  const { setValue, value } = useContext(ConfirmModalContext);
+  // const { setValue, value } = useContext(ConfirmModalContext);
 
-  const checkInput = () => {
-    if (setValue) {
-      setValue(!value);
-    }
-  };
+  const {setValueCheckboxAgreement } = useActionsCofirModale();
+  const { valueCheckboxAgreement } = useConfirmModalContext();
+
+
+  useEffect(() => {
+    if(!valueCheckboxAgreement) {
+      setValueCheckboxAgreement(true);
+    }  
+  }, [valueCheckboxAgreement, setValueCheckboxAgreement])
+
+
+  console.log(valueCheckboxAgreement);
+  
+
+
+  // const checkInput = () => {
+  //   if (setValue) {
+  //     setValue(!value);
+  //   }
+  // };
 
   return (
     <ConfirmModalWrapper>
-      <h3>Пользовательское соглашение</h3>
+      <div>
+
+      </div>
+      {/* <h3>Пользовательское соглашение</h3>
       <div>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor excepturi
         architecto nulla adipisci dignissimos placeat, minima quisquam quaerat
@@ -55,7 +74,7 @@ export const ConfirmModal: React.FC<IConfirmModal> = ({
         <button onClick={saveDetailModal} disabled={!value}>
           Сохранить
         </button>
-      </div>
+      </div> */}
     </ConfirmModalWrapper>
   );
 };
